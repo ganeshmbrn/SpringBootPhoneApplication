@@ -55,7 +55,7 @@ public class ContactController {
 		boolean recordFlag = contactDetailsService.createOrEditContactDetails(contactDetails);
 		if (recordFlag) {
 			if (cid == null) {
-				System.out.println("Test");
+				System.out.println("Test Added in main");
 				model.addAttribute(AppConstants.message, props.getMessages().get("contactSavedSuccess"));
 			} else {
 				model.addAttribute(AppConstants.message, props.getMessages().get("contactUpdateSuccess"));
