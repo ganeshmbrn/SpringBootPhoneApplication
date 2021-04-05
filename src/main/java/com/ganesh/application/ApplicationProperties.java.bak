@@ -19,7 +19,6 @@ public class ApplicationProperties {
 	}
 
 	public void setMessages(Map<String, String> messages) {
-		System.out.println("Testing");
 		this.messages = messages;
 	}
 }
