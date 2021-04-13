@@ -23,8 +23,8 @@ public class ContactDetailsServiceImpl implements ContactDetailsService {
 	}
 
 	@Override
-	public ContactDetails getContactDetailsById(Integer ContactDetailsId) {
-		Optional<ContactDetails> findById = contactDetailsRepo.findById(ContactDetailsId);
+	public ContactDetails getContactDetailsById(Integer contactDetailsId) {
+		Optional<ContactDetails> findById = contactDetailsRepo.findById(contactDetailsId);
 		if (findById.isPresent()) {
 			return findById.get();
 		}
@@ -38,7 +38,6 @@ public class ContactDetailsServiceImpl implements ContactDetailsService {
 			contactDetailsRepo.deleteById(contactDetailsId);
 			isDeleted = true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return isDeleted;

@@ -12,6 +12,6 @@ public interface ContactDetailsService {
 	
 	public List<ContactDetails> getAllContactDetails();
 	
-	public ContactDetails getContactDetailsById(Integer ContactDetailsId);
+	public ContactDetails getContactDetailsById(Integer contactDetailsId);
 	
 }

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "phonebook")
 public class ApplicationProperties {
 
-	private Map<String,String> messages = new HashMap<String, String>();
+	private Map<String,String> messages = new HashMap<>();
 
 	public Map<String, String> getMessages() {
 		return messages;

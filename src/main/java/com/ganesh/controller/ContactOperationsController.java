@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ganesh.application.AppConstants;
 import com.ganesh.application.ApplicationProperties;
 import com.ganesh.entities.ContactDetails;
 import com.ganesh.services.ContactDetailsService;
@@ -20,7 +21,6 @@ public class ContactOperationsController {
     public ContactOperationsController(ContactDetailsService contactDetailsService,ApplicationProperties props) {
     	this.contactDetailsService = contactDetailsService;
     	this.props = props;
-		
 	}
     
     /**
@@ -36,7 +36,7 @@ public class ContactOperationsController {
 		if(contactDetailsById != null) {
 			model.addAttribute("contactForm", contactDetailsById);
 		}		
-		return "contactForm";
+		return AppConstants.CONTACTFORM;
 	}
 	
 	/**
@@ -50,12 +50,10 @@ public class ContactOperationsController {
 		 
 		boolean deleteContactFlag = contactDetailsService.removeContactDetailsById(contactId);
 		if(deleteContactFlag) {
-			rda.addAttribute("deleteMessage",props.getMessages().get("contactDeleteSuccess"));
+			rda.addFlashAttribute("deleteMessage",props.getMessages().get("contactDeleteSuccess"));
 		}else {
-			rda.addAttribute("deleteMessage",props.getMessages().get("contactDeleteFailure"));
+			rda.addFlashAttribute("deleteMessage",props.getMessages().get("contactDeleteFailure"));
 		}
 		return "redirect:listOfContacts";
 	}
-
-
 }

@@ -39,7 +39,7 @@ public class ContactController {
 		model.addAttribute("contactForm", new ContactDetails());
 
 		// returning the logical view name
-		return "contactForm";
+		return AppConstants.CONTACTFORM;
 	}
 
 	/**
@@ -55,16 +55,15 @@ public class ContactController {
 		boolean recordFlag = contactDetailsService.createOrEditContactDetails(contactDetails);
 		if (recordFlag) {
 			if (cid == null) {
-				System.out.println("Test Added in main");
-				model.addAttribute(AppConstants.message, props.getMessages().get("contactSavedSuccess"));
+				model.addAttribute(AppConstants.MESSAGE, props.getMessages().get("contactSavedSuccess"));
 			} else {
-				model.addAttribute(AppConstants.message, props.getMessages().get("contactUpdateSuccess"));
+				model.addAttribute(AppConstants.MESSAGE, props.getMessages().get("contactUpdateSuccess"));
 			}
 		} else {
-			model.addAttribute(AppConstants.message, props.getMessages().get("contactSavedFailure"));
+			model.addAttribute(AppConstants.MESSAGE, props.getMessages().get("contactSavedFailure"));
 		}
 		
-		return "contactForm";
+		return AppConstants.CONTACTFORM;
 	}
 
 	/**
@@ -77,7 +76,6 @@ public class ContactController {
 	public String viewAllContactAction(Model model) {
 		List<ContactDetails> allContactDetails = contactDetailsService.getAllContactDetails();
 		model.addAttribute("contactsList", allContactDetails);
-
 		return "contactViewDetails";
 	}
 

@@ -17,9 +17,10 @@
       <span style="color:red;font-size:18px;font-weight:bold;">Contact Management System</span><br/>
       <a href="loadContactForm">+ Add New Record</a>
     </div><br/>
-    <span style='text-align:center;color:red;font-weight:bold;'>${deleteMessage}</span>
+    
 	<c:choose>
 		<c:when test="${contactsList.size() > 0 }">
+			<div style='text-align:center;color:red;font-weight:bold;'>${deleteMessage}</div>
 			<table align="center" border="2">
 				<thead>
 					<tr style="color: blue;">
